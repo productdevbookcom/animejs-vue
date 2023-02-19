@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useAnimejs } from '@productdevbook/animejs-vue'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
-const { anime, array, stagger } = useAnimejs()
+const { anime, animations, helper } = useAnimejs()
 
 onMounted(() => {
   // anime({
@@ -13,12 +13,15 @@ onMounted(() => {
   //   direction: 'alternate',
   //   loop: true,
   // })
-  array.slide({
+  animations.array.fade({
     target: '.logo',
+    params: {
+      delay: helper.stagger(500),
+    },
   })
 })
 
-const data = [{
+const data = ref([{
   name: 'Vite',
   id: 'vite',
   data: 'aaa',
@@ -33,29 +36,31 @@ const data = [{
   id: 'animejs',
   data: 'ccc',
 },
-]
+])
+
+const addList = () => {
+  data.value.push({
+    name: 'Vite',
+    id: 'vite',
+    data: 'aaa',
+  })
+}
 </script>
 
 <template>
-  <div v-for="item in data" :key="item.id" class="logo">
-    <div>
-      <h1>{{ item.name }}</h1>
-      <p>{{ item.data }}</p>
+  <div class="flex items-center justify-center h-screen w-screen flex-col">
+    <div class="mb-10">
+      <button @click="addList">
+        Add List
+      </button>
+    </div>
+    <div class="grid grid-cols-1 gap-6">
+      <div v-for="item in data" :key="item.id" class="logo">
+        <div class="font-bold">
+          <h1>{{ item.name }}</h1>
+          <p>{{ item.data }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
