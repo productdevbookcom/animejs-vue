@@ -8,7 +8,7 @@ const external = [
 ]
 
 export default <Options>{
-  entryPoints: ['src/index.ts'],
+  entryPoints: ['src/index.ts', 'src/nuxt.ts'],
   dts: true,
   splitting: true,
   target: 'node16', // needed for working ESM

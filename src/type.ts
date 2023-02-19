@@ -5,11 +5,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-type FunctionBasedParameter = (element: HTMLElement, index: number, length: number) => number
-type AnimeCallbackFunction = (anim: anime.AnimeInstance) => void
-type CustomEasingFunction = (el: HTMLElement, index: number, length: number) => ((time: number) => number)
+export type FunctionBasedParameter = (element: HTMLElement, index: number, length: number) => number
+
+export type AnimeCallbackFunction = (anim: anime.AnimeInstance) => void
+
+export type CustomEasingFunction = (el: HTMLElement, index: number, length: number) => ((time: number) => number)
 // Allowing null is necessary because DOM queries may not return anything.
-type AnimeTarget = string | object | HTMLElement | SVGElement | NodeList | null
+export type AnimeTarget = string | object | HTMLElement | SVGElement | NodeList | null
 
 type EasingOptions =
     | 'linear'
@@ -135,7 +137,7 @@ interface AnimeTimelineInstance extends AnimeInstance {
   add(params: AnimeAnimParams, timelineOffset?: string | number): AnimeTimelineInstance
 }
 
-interface StaggerOptions {
+export interface StaggerOptions {
   start?: number | string | undefined
   direction?: 'normal' | 'reverse' | undefined
   easing?: CustomEasingFunction | string | EasingOptions | undefined
