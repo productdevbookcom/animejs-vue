@@ -14,7 +14,7 @@
     "rangeStrategy": "bump",
     "packageRules": [
         {
-            "matchPaths": [
+            "matchFiles": [
                 "package.json"
             ],
             "matchDatasources": [
