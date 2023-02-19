@@ -133,7 +133,7 @@ interface AnimeTimelineAnimParams extends AnimeAnimParams {
   timelineOffset: number | string | FunctionBasedParameter
 }
 
-interface AnimeTimelineInstance extends AnimeInstance {
+export interface AnimeTimelineInstance extends AnimeInstance {
   add(params: AnimeAnimParams, timelineOffset?: string | number): AnimeTimelineInstance
 }
 
