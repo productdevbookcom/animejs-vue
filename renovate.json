@@ -15,7 +15,7 @@
     "packageRules": [
         {
             "matchPaths": [
-                "+(package.json)"
+                "package.json"
             ],
             "matchDatasources": [
                 "npm"
@@ -26,11 +26,33 @@
                 "major"
             ],
             "groupName": "root",
+            "groupSlug": "shared-root",
             "labels": [
                 "root"
             ],
             "addLabels": [
                 "root"
+            ]
+        },
+        {
+            "matchPaths": [
+                "playground/package.json"
+            ],
+            "matchDatasources": [
+                "npm"
+            ],
+            "matchUpdateTypes": [
+                "patch",
+                "minor",
+                "major"
+            ],
+            "groupName": "playground",
+            "groupSlug": "shared-playground",
+            "labels": [
+                "playground"
+            ],
+            "addLabels": [
+                "playground"
             ]
         }
     ]
