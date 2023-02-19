@@ -17,9 +17,6 @@
             "matchFiles": [
                 "package.json"
             ],
-            "matchDatasources": [
-                "npm"
-            ],
             "matchUpdateTypes": [
                 "patch",
                 "minor",
@@ -28,18 +25,15 @@
             "groupName": "root",
             "groupSlug": "shared-root",
             "labels": [
-                "root"
+                "dependencies"
             ],
             "addLabels": [
-                "root"
+                "dependencies"
             ]
         },
         {
             "matchPaths": [
-                "playground/package.json"
-            ],
-            "matchDatasources": [
-                "npm"
+                "playground/**"
             ],
             "matchUpdateTypes": [
                 "patch",
@@ -49,10 +43,10 @@
             "groupName": "playground",
             "groupSlug": "shared-playground",
             "labels": [
-                "playground"
+                "dependencies"
             ],
             "addLabels": [
-                "playground"
+                "dependencies"
             ]
         }
     ]
