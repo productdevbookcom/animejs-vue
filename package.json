@@ -39,7 +39,7 @@
     "build": "tsup --dts",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag",
+    "release": "bumpp --commit --push --tag && npm publish",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "lint:fix": "eslint --ext .ts,.tsx,.js,.jsx . --fix"
   },
