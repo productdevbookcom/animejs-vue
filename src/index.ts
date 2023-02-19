@@ -1,6 +1,8 @@
 import animejs from 'animejs'
+import type { App } from 'vue'
 import { arrayAnimations } from './animations/array'
 import type { AnimeInstance, AnimeParams, AnimeTarget, AnimeTimelineInstance, FunctionBasedParameter, StaggerOptions } from './type'
+
 export function useAnimejs() {
   const _anime = (params: AnimeParams): AnimeInstance => {
     return animejs(params)
@@ -83,5 +85,33 @@ export function useAnimejs() {
     animations,
     helper: helper(),
     timeline,
+  }
+}
+
+export const animejsPlugin = {
+  install: (app: App, options?: any) => {
+    const animejs = useAnimejs()
+    app.config.globalProperties.$animejs = animejs
+
+    app.provide('animejs', animejs)
+
+    app.directive('animejs', {
+      mounted(el, binding) {
+        const { value } = binding
+        animejs.anime(value)
+      },
+    })
+  },
+}
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $animejs: ReturnType<typeof useAnimejs>
+  }
+}
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $animejs: ReturnType<typeof useAnimejs>
   }
 }

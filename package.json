@@ -55,6 +55,15 @@
   "dependencies": {
     "@nuxt/kit": "^3.2.2",
     "@types/animejs": "^3.1.7",
-    "animejs": "^3.2.1"
+    "@vue/runtime-core": "3.2.47",
+    "@vue/runtime-dom": "^3.2.47",
+    "animejs": "^3.2.1",
+    "vue": "^3.2.47"
+  },
+  "resolutions": {
+    "vue": "3.2.47",
+    "vue-bundle-renderer": "1.0.2",
+    "@vue/runtime-core": "3.2.47",
+    "@vue/server-renderer": "3.2.47"
   }
 }
